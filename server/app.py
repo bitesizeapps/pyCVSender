@@ -8,8 +8,6 @@ from mailsender import email_sender
 def is_not_blank(s):
     return bool(s and not s.isspace())
 
-
-
 app = Flask(__name__)
 
 #@app.route("/")
