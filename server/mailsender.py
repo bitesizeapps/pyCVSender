@@ -18,6 +18,7 @@ from email.mime.image import MIMEImage
 from email.mime.audio import MIMEAudio
 from email.mime.base import MIMEBase
 from mimetypes import guess_type as guess_mime_type
+import email.encoders
 
 from auth_new import gmail_authenticate
 
@@ -47,6 +48,7 @@ def add_attachment(message, filename):
         fp.close()
     filename = os.path.basename(filename)
     msg.add_header('Content-Disposition', 'attachment', filename=filename)
+    email.encoders.encode_base64(msg)
     message.attach(msg)
 
 def build_message(destination, obj, body, attachments=[]):
@@ -79,6 +81,3 @@ def email_sender(receiver_email,msg_subject,msg_body):
     service = gmail_authenticate()
     send_message(service, receiver_email, msg_subject, msg_body, ["notes.pdf"])
 
-
-
-email_sender("sphincone@gmail.com","PDF Test", "hah")
