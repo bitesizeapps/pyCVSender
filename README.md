@@ -2,6 +2,8 @@
 
 ## Sending your CVs with custom formatting without any of the hassle
 
+Serverless demo is available here: https://bitesizeapps.github.io/pyCVSender/ (only ui, no server)
+
 ### Setup
 
 - Get `credentials.json` from [Gmail API](https://developers.google.com/gmail/api) and put it in the `server` folder
